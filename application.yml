@@ -1,0 +1,15 @@
+# Applies to ALL services
+logging:
+  level:
+    root: INFO
+    org.springframework.web: WARN
+
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: UTC
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka
