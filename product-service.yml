@@ -20,5 +20,10 @@ eureka:
 
 server:
   port: 8082
+springdoc:
+  api-docs:
+    servers:
+      - url: http://8080
+        description: Gateway Server  
 
   
