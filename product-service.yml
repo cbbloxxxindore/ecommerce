@@ -22,7 +22,7 @@ server:
   port: 8082
 springdoc:
   swagger-ui:
-    path: http://localhost:8082/swagger-ui/index.html
+    path: /swagger-ui.html
           
     enabled: true
   api-docs:
