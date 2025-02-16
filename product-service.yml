@@ -21,9 +21,14 @@ eureka:
 server:
   port: 8082
 springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
   api-docs:
-    servers:
-      - url: http://8080
-        description: Gateway Server  
+    path: /v3/api-docs
+    enabled: true  
+  
+  
+ 
 
   
