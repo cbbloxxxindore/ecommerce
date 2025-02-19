@@ -51,7 +51,7 @@ resilience4j:
   timelimiter:
     instances:
       productService:
-        timeoutDuration: 2s  # Timeout after 2 seconds
+        timeoutDuration: 25s  # Timeout after 2 seconds
 
 
 
