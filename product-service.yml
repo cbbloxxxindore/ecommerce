@@ -1,57 +1,27 @@
 # Applies ONLY to product-service
+
+  # Applies ONLY to product-service
 spring:
-  cache:
-    type: caffeine
-    caffeine:
-      spec: maximumSize=100, expireAfterAccess=10m
   application:
     name: product-service
-  config:
-    import: "configserver:"
-  cloud:
-    config:
-      uri: http://localhost:8888  # Replace with your actual Config Server URL
-      label: master
-      fail-fast: true
   datasource:
     url: jdbc:mysql://localhost:3306/product_db
     username: root
     password: root
   jpa:
     hibernate:
-     ddl-auto: update
+      ddl-auto: update
     show-sql: true
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
-
 eureka:
   client:
-    serviceUrl:
+    service-url:
       defaultZone: http://localhost:8761/eureka
 
 server:
   port: 8082
-resilience4j:
-  circuitbreaker:
-    instances:
-      productService:
-        registerHealthIndicator: true
-        failureRateThreshold: 50  # Open circuit after 50% failures
-        minimumNumberOfCalls: 10  # Minimum calls to evaluate failure rate
-        slidingWindowSize: 10      # Last 10 calls are considered
-        waitDurationInOpenState: 10s  # Wait 10s before allowing retries
-        permittedNumberOfCallsInHalfOpenState: 3
-        automaticTransitionFromOpenToHalfOpenEnabled: true
-  retry:
-    instances:
-      productService:
-        maxAttempts: 3  # Retry up to 3 times
-        waitDuration: 500ms  # Wait 500ms between retries
-  timelimiter:
-    instances:
-      productService:
-        timeoutDuration: 25s  # Timeout after 2 seconds
 
 
 
